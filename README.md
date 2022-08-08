@@ -18,3 +18,10 @@ The following decisions were made while creating this app. Besides DRY, conventi
 2. Each page/section could be associated with its data slice. So the standard "page" folder naming convention wouldn't be so appropriate. Therefore, I decided to follow the redux template convention of naming the folder "features" with each "feature" having its own page components and redux slices.
 3. Any data that had to be persisted across navigation and/or be made accessible across the pages were put in the redux store. Page specific data was relegated to the state of the page component.
 4. In case of Browse Genres, I have assumed that the search term need not persist across switching of pages. Hence, I haven't used the redux store for persisting the filtered list.
+
+### Folder structure is as follows:
+
+1. **app** contains constants, axios interceptor, router, store, and the pages object (for decoupling).
+2. **components** contains the reusable components.
+3. **features** contains the "features" of the app: _Browse Genres_, _Featured Playlists_ and _Releases this Week_. Each feature consists of the page component and associated data store slice clubbed together.
+4. **hooks** contains custom hooks.
