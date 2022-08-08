@@ -1,9 +1,8 @@
-import { Box, Heading, Image, PageContent } from "grommet";
+import { Heading, Image, PageContent } from "grommet";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useCookieAuth from "../../hooks/useCookieAuth";
 import { fetchReleases, selectReleases } from "./releasesSlice";
-import styled from "styled-components";
 import CardCustom from "../../components/CardCustom";
 import CardsContainer from "../../components/CardsContainer";
 
