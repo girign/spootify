@@ -9,6 +9,11 @@ const theme = {
       height: "20px",
     },
   },
+  tip: {
+    content: {
+      background: "dark-2",
+    },
+  },
 };
 
 function App() {

@@ -5,7 +5,6 @@ import LoginPage from "../features/auth/LoginPage";
 import BrowseGenresPage from "../features/browseGenres/BrowseGenresPage";
 import ReleasesThisWeekPage from "../features/releasesThisWeek/ReleasesThisWeekPage";
 import FeaturedPlaylistsPage from "../features/featuredPlaylists/FeaturedPlaylistsPage";
-import HomePage from "../features/home/HomePage";
 import PageLayout from "../components/PageLayout";
 
 function Router() {
@@ -14,10 +13,9 @@ function Router() {
       <Routes>
         <Route
           path="/login"
-          element={<LoginPage landingPagePath={"/home"} />}
+          element={<LoginPage landingPagePath={"/releases_this_week"} />}
         />
         <Route element={<PageLayout />}>
-          <Route path="/home" element={<HomePage />} />
           <Route path="/browse_genres" element={<BrowseGenresPage />} />
           <Route
             path="/releases_this_week"

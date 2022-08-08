@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Page, PageContent, PageHeader, Button } from "grommet";
+import { Page, Grid, PageContent, PageHeader, Button } from "grommet";
 import {
   CLIENT_ID,
   REDIRECT_URI,
@@ -34,23 +34,25 @@ function LoginPage({ landingPagePath }) {
   }, []);
 
   return (
-    <Page kind="narrow">
-      <PageContent>
-        <MidLevelPageHeader
-          title="Spootify"
-          subtitle="Welcome"
-          actions={
-            <Button
-              label="Login using Spotify"
-              primary
-              onClick={() =>
-                (window.location = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&response_type=${RESPONSE_TYPE}&redirect_uri=${REDIRECT_URI}`)
-              }
-            />
-          }
-        />
-      </PageContent>
-    </Page>
+    <Grid height={{ min: "100vh" }}>
+      <Page kind="narrow" background="dark-1">
+        <PageContent>
+          <MidLevelPageHeader
+            title="Spootify"
+            subtitle="Welcome"
+            actions={
+              <Button
+                label="Login using Spotify"
+                primary
+                onClick={() =>
+                  (window.location = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&response_type=${RESPONSE_TYPE}&redirect_uri=${REDIRECT_URI}`)
+                }
+              />
+            }
+          />
+        </PageContent>
+      </Page>
+    </Grid>
   );
 }
 

@@ -17,9 +17,8 @@ function PageLayout() {
   return (
     <Grid
       rows={["any CSS size"]}
-      columns={["small", "xlarge"]}
-      gap="medium"
-      height={{ min: "100vh", max: "100vh" }}
+      columns={["small", "flex"]}
+      height={{ min: "100vh" }}
       areas={[
         {
           name: "nav",
@@ -55,6 +54,7 @@ function PageLayout() {
         pad="medium"
         height={{ min: "100vh", max: "100vh" }}
         overflow="scroll"
+        background="black"
       >
         <Outlet />
       </Box>

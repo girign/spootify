@@ -1,20 +1,39 @@
 import { Card, CardBody, CardFooter, CardHeader, Text } from "grommet";
+import styled from "styled-components";
+
+const CardWithoutShadow = styled(Card)`
+  box-shadow: none;
+`;
 
 function CardCustom({ header, body, footer }) {
   return (
-    <Card pad="small" width="small" height="small">
+    <CardWithoutShadow
+      background="#181818"
+      pad="small"
+      width="small"
+      height="small"
+      gap="small"
+    >
       <CardHeader>
-        <Text truncate={true} tip={{ content: header }}>
+        <Text
+          weight="bold"
+          truncate={true}
+          tip={{ content: <Text size="small">{header}</Text> }}
+        >
           {header}
         </Text>
       </CardHeader>
       <CardBody overflow="hidden">{body}</CardBody>
       <CardFooter>
-        <Text truncate={true} tip={{ content: footer }}>
+        <Text
+          size="small"
+          truncate={true}
+          tip={{ content: <Text size="small">{footer}</Text> }}
+        >
           {footer}
         </Text>
       </CardFooter>
-    </Card>
+    </CardWithoutShadow>
   );
 }
 
