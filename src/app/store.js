@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "../features/counter/counterSlice";
-import authReducer from "../pages/login/authSlice";
+import genresReducer from "../features/browseGenres/genresSlice";
+import releasesReducer from "../features/releasesThisWeek/releasesSlice";
+import featuredPlaylistsReducer from "../features/featuredPlaylists/featuredPlaylistsSlice";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
-    auth: authReducer,
+    genres: genresReducer,
+    releases: releasesReducer,
+    featuredPlaylists: featuredPlaylistsReducer,
   },
 });
