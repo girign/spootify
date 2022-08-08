@@ -21,7 +21,7 @@ The following decisions were made while creating this app. Besides DRY, conventi
 
 ### Folder structure is as follows:
 
-1. **app** contains constants, axios interceptor, router, store, and the pages object (for decoupling).
-2. **components** contains the reusable components.
-3. **features** contains the "features" of the app: _Browse Genres_, _Featured Playlists_ and _Releases this Week_. Each feature consists of the page component and associated data store slice clubbed together.
-4. **hooks** contains custom hooks.
+1. **app** folder contains constants, axios interceptor, router, store, and the pages object (for decoupling).
+2. **components** folder contains low level reusable components.
+3. **features** folder contains "features" of the app: _Browse Genres_, _Featured Playlists_ and _Releases this Week_. Each feature consists of the page component and associated data store slice clubbed together.
+4. **hooks** folder contains custom hooks.
