@@ -1,20 +1,21 @@
 import Cookies from "js-cookie";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 import { Page, Grid, PageContent, PageHeader, Button } from "grommet";
 import {
   CLIENT_ID,
   REDIRECT_URI,
   AUTH_ENDPOINT,
   RESPONSE_TYPE,
+  LANDING_PAGE,
 } from "../../app/constants";
-import styled from "styled-components";
 
 const MidLevelPageHeader = styled(PageHeader)`
   margin-top: 40vh;
 `;
 
-function LoginPage({ landingPagePath }) {
+function LoginPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,11 +23,11 @@ function LoginPage({ landingPagePath }) {
       let urlParts = window.location.href.split("&");
       let token = urlParts[0].split("=")[1];
       Cookies.set("accessToken", token);
-      navigate(landingPagePath);
+      navigate(LANDING_PAGE);
     } else {
       let accessToken = Cookies.get("accessToken");
       if (accessToken) {
-        navigate(landingPagePath);
+        navigate(LANDING_PAGE);
       }
     }
   }, []);

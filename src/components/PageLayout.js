@@ -1,4 +1,4 @@
-import { Sidebar, Box, Grid, Button, Nav } from "grommet";
+import { Sidebar, Box, Grid, Nav } from "grommet";
 import { Calendar, Search, Star } from "grommet-icons";
 import { Outlet, useNavigate } from "react-router-dom";
 import LogoutButton from "../features/auth/LogoutButton";
@@ -12,7 +12,7 @@ function SidebarFooter() {
   );
 }
 
-function PageLayout() {
+function PageLayout({ pages }) {
   const navigate = useNavigate();
   return (
     <Grid
@@ -31,21 +31,14 @@ function PageLayout() {
       <Box gridArea="nav" fill={"vertical"}>
         <Sidebar background="brand" footer={<SidebarFooter />}>
           <Nav>
-            <SidebarButton
-              icon={<Calendar />}
-              label="Releases This Week"
-              onClick={() => navigate("/releases_this_week")}
-            />
-            <SidebarButton
-              icon={<Search />}
-              label="Browse Genres"
-              onClick={() => navigate("/browse_genres")}
-            />
-            <SidebarButton
-              icon={<Star />}
-              label="Featured Playlists"
-              onClick={() => navigate("/featured_playlists")}
-            />
+            {pages.withLayout
+              .map((page) => ({
+                ...page,
+                onClick: () => navigate(page.path),
+              }))
+              .map((page, index) => (
+                <SidebarButton key={index} {...page} />
+              ))}
           </Nav>
         </Sidebar>
       </Box>

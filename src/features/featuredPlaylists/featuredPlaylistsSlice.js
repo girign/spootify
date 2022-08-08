@@ -32,7 +32,6 @@ export const fetchFeaturedPlaylists = createAsyncThunk(
   async (accessToken) => {
     const response = await makeFeaturedPlaylistsAPICall(accessToken);
 
-    console.log(response.data.playlists.items);
     return response.data.playlists.items;
   }
 );

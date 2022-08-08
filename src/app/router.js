@@ -1,33 +1,24 @@
 import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import LoginPage from "../features/auth/LoginPage";
-import BrowseGenresPage from "../features/browseGenres/BrowseGenresPage";
-import ReleasesThisWeekPage from "../features/releasesThisWeek/ReleasesThisWeekPage";
-import FeaturedPlaylistsPage from "../features/featuredPlaylists/FeaturedPlaylistsPage";
 import PageLayout from "../components/PageLayout";
+import pages from "./pages";
+import { FALLBACK_PAGE } from "./constants";
 
 function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/login"
-          element={<LoginPage landingPagePath={"/releases_this_week"} />}
-        />
-        <Route element={<PageLayout />}>
-          <Route path="/browse_genres" element={<BrowseGenresPage />} />
-          <Route
-            path="/releases_this_week"
-            element={<ReleasesThisWeekPage />}
-          />
-          <Route
-            path="/featured_playlists"
-            element={<FeaturedPlaylistsPage />}
-          />
+        {pages.withoutLayout.map((page, index) => (
+          <Route {...page} key={index} />
+        ))}
+        <Route element={<PageLayout pages={pages} />}>
+          {pages.withLayout.map((page, index) => (
+            <Route {...page} key={index} />
+          ))}
         </Route>
 
-        <Route path="*" element={<Navigate to="/login" replace />} />
+        <Route path="*" element={<Navigate to={FALLBACK_PAGE} replace />} />
       </Routes>
     </BrowserRouter>
   );

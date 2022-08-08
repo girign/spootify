@@ -35,7 +35,6 @@ export const fetchReleases = createAsyncThunk(
     let releasedThisWeek = response.data.albums.items.filter(
       (item) => differenceInDays(new Date(), parseISO(item.release_date)) < 40
     );
-    console.log(releasedThisWeek);
     return releasedThisWeek;
   }
 );
