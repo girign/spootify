@@ -11,7 +11,6 @@ function ReleasesThisWeekPage() {
   useCookieAuth();
   const dispatch = useDispatch();
   const releases = useSelector(selectReleases);
-  console.log(releases);
   useEffect(() => {
     if (!releases.length) {
       dispatch(fetchReleases());

@@ -20,9 +20,7 @@ function LoginPage({ landingPagePath }) {
   useEffect(() => {
     if (window.location.href.includes("token")) {
       let urlParts = window.location.href.split("&");
-      console.log(urlParts);
       let token = urlParts[0].split("=")[1];
-      console.log(token);
       Cookies.set("accessToken", token);
       navigate(landingPagePath);
     } else {
