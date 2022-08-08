@@ -25,3 +25,7 @@ The following decisions were made while creating this app. Besides DRY, conventi
 2. **components** folder contains low level reusable components.
 3. **features** folder contains "features" of the app: _Browse Genres_, _Featured Playlists_ and _Releases this Week_. Each feature consists of the page component and associated data store slice clubbed together.
 4. **hooks** folder contains custom hooks.
+
+#### Please Note:
+
+REDIRECT_URI assumes app to be opened at localhost:3000
