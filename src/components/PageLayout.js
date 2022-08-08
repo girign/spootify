@@ -1,5 +1,4 @@
 import { Sidebar, Box, Grid, Nav } from "grommet";
-import { Calendar, Search, Star } from "grommet-icons";
 import { Outlet, useNavigate } from "react-router-dom";
 import LogoutButton from "../features/auth/LogoutButton";
 import SidebarButton from "./SidebarButton";
